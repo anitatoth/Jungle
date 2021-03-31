@@ -5,6 +5,7 @@
   </header>
 
   <div class="panel panel-default items">
+  <% if enhanced_cart.product.any? %> 
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -30,6 +31,11 @@
         </tr>
       </tfoot>
     </table>
+    <% else %>
+    <div class="alert alert-danger" role="alert">
+    <h4>Please add something to your cart if you would like to check out.</h4>
+  </div>
+  <% end %>
   </div>
 
   <div class="row">
