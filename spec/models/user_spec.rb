@@ -43,7 +43,32 @@ RSpec.describe User, type: :model do
   end
 
   describe '.authenticate_with_credentials' do
-    # examples for this class method here
+    describe '.authenticate_with_credentials' do
+      it "should return user with valid credentials" do
+        @user = User.create(first_name:"Buffy", last_name:"Summers", email: "slayer@gmail.com", password: "1234", password_confirmation: "1234") 
+        
+        expect(User.authenticate_with_credentials('slayer@gmail.com', '1234')).not_to be(nil)
+      end
+
+      it "should return nil if not  authenticated" do
+        @user = User.create(first_name:"Buffy", last_name:"Summers", email: "slayer@gmail.com", password: "1234", password_confirmation: "1234") 
+        
+        expect(User.authenticate_with_credentials('slayer@gmail.com', '5678')).to be(nil)
+      end
+
+      it 'should authenticate even if spaces before and after email' do
+        @user = User.create(first_name:"Buffy", last_name:"Summers", email: "slayer@gmail.com", password: "1234", password_confirmation: "1234") 
+        
+       expect(User.authenticate_with_credentials('  slayer@gmail.com  ', '1234')).not_to be(nil)
+      end
+
+      it 'should pass even if email is uppercase or lowercase' do
+        @user = User.create(first_name:"Buffy", last_name:"Summers", email: "slayer@gmail.com", password: "1234", password_confirmation: "1234") 
+        
+        expect(User.authenticate_with_credentials('SLAyer@gmail.com', '1234')).not_to be(nil)
+      end
+    end
+  
   end
 
 end
