@@ -4,11 +4,11 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 ## Screenshots
 
-!["Home page with all products listed."]()
+!["Home page with all products listed."](https://github.com/zorromark/Jungle/blob/master/docs/Products_Page.png?raw=true)
 
-!["Product details page."]()
+!["Product details page."](https://github.com/zorromark/Jungle/blob/master/docs/Product_Details.png?raw=true)
 
-!["Products in cart."]()
+!["Products in cart."](https://github.com/zorromark/Jungle/blob/master/docs/Cart.png?raw=true)
 
 ## Additional Steps for Apple M1 Machines
 
