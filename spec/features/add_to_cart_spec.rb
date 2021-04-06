@@ -17,14 +17,18 @@ RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
     end
   end
 
-  scenario "They see all products" do
+  scenario "Users can click the 'Add to Cart' button for a product on the home page and in doing so their cart increases by one" do
+
     # ACT
     visit root_path
-
-    # DEBUG
-    # save_screenshot
+    expect(page).to have_content('My Cart (0)')
+    page.first('.btn-primary').click
 
     # VERIFY
-    expect(page).to have_css 'article.product', count: 10
+    expect(page).to have_content('My Cart (1)')
+
+    # DEBUG
+    save_screenshot
   end
 end
+

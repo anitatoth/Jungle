@@ -29,7 +29,7 @@ RSpec.feature "Users can navigate from the home page to the product detail page 
     expect(page).to have_content('Description')
     
     # DEBUG
-    save_screenshot
+    # save_screenshot
 
   end
 
